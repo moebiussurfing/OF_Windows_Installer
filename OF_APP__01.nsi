@@ -28,7 +28,7 @@
 !define MUI_FINISHPAGE_SHOWREADME README.md
 ;!define MUI_FINISHPAGE_SHOWREADME_TEXT text
 
-!define MUI_FINISHPAGE_LINK @moebiussurfing
+!define MUI_FINISHPAGE_LINK Twitter:@moebiussurfing
 ;Text for a link on the which the user can click to view a website or file.
 !define MUI_FINISHPAGE_LINK_LOCATION https://twitter.com/moebiussurfing
 ;Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.
