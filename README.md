@@ -2,13 +2,13 @@
 Make a custom _MS Windows_ installer for your own **OF_App**'s.
 
 ## Screenshots
-Installation Process:  
+* Installation Process:  
 ![image](/readme_images/Capture1.JPG?raw=true "image")
 ![image](/readme_images/Capture2.JPG?raw=true "image")
 ![image](/readme_images/Capture3.JPG?raw=true "image")
 ![image](/readme_images/Capture4.JPG?raw=true "image")+
 
-Example Structure Files:  
+* Example Structure Files:  
 ![image](/readme_images/Capture_Example.JPG?raw=true "image")
 
 ## Usage
