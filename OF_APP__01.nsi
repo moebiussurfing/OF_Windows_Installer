@@ -1,13 +1,38 @@
-    ;based on NsiWindowsInstallerExamples-master
-
+    ;script based into NsiWindowsInstallerExamples-master
+	;help:
+	;https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html
 
     ;--------------------------------
     ;Include Modern UI
+    !include "MUI2.nsh"
+     
+    ;extra plugins
+    !include "WinMessages.nsh"
+	
+	;!define MUI_WELCOMEPAGE_TEXT moebiusSurfing
+	
+	;!define MUI_INSTFILESPAGE_COLORS "00FF00 000000" ;custom console colors
+	;!define MUI_LICENSEPAGE_BGCOLOR  "00FF00" ;custom license colors
 
-      !include "MUI2.nsh"
-      
-      ;extra plugins
-      !include "WinMessages.nsh"
+	;----
+	
+	; finish window
+
+    ;disable autoclose to all read final log
+	!define MUI_FINISHPAGE_NOAUTOCLOSE
+
+	!define MUI_FINISHPAGE_RUN ofxColorManager.exe
+	;!define MUI_FINISHPAGE_RUN_TEXT enjoy!
+	
+	!define MUI_FINISHPAGE_SHOWREADME README.md
+	;!define MUI_FINISHPAGE_SHOWREADME_TEXT text
+	
+	!define MUI_FINISHPAGE_LINK @moebiussurfing
+	;Text for a link on the which the user can click to view a website or file.
+	!define MUI_FINISHPAGE_LINK_LOCATION https://twitter.com/moebiussurfing
+	;Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.
+
+	!define MUI_FINISHPAGE_NOREBOOTSUPPORT ;free some space
 
     ;--------------------------------
     ;General
@@ -20,11 +45,7 @@
 
       ;Define optional URL that will be opened after the installation was successful
       !define AFTER_INSTALLATION_URL "https://github.com/moebiussurfing/ofxColorManager"
-
-      ;!define HELPURL "http://..." # "Support Information" link
-      ;!define UPDATEURL "http://..." # "Product Updates" link
-      ;!define ABOUTURL "http://..." # "Publisher" link
-
+		
       ;Define the main name of the installer
       Name "${PRODUCT}"
 
@@ -56,7 +77,7 @@
       !define MUI_ABORTWARNING
 
       ;Show all languages, despite user's codepage
-      !define MUI_LANGDLL_ALLLANGUAGES
+      ;!define MUI_LANGDLL_ALLLANGUAGES
 
       ;Use optional a custom icon:
       !define MUI_ICON "resources\example_icon_installer.ico" # for the Installer
@@ -77,36 +98,36 @@
   Function .onInit
 
   ;--------------------------------
-    ;0. BgImage
-    ; seems to not work on Modern UI
-     ; ; Function .onGUIInit
-     ;   BgImage::SetBg /GRADIENT 0 0x80 0 0x80 0 0
-     ;   BgImage::SetBg /GRADIENT 0 0x80 0 0x80 0 0
-     ;   BgImage::AddText "Testing 1... 2... 3..." $R0 255 0 0 50 50 800 200
-     ;   BgImage::Redraw
-     ; ; FunctionEnd
+  ;0. BgImage
+  ; TODO: seems not working on Modern UI
+  ; ; Function .onGUIInit
+  ;   BgImage::SetBg /GRADIENT 0 0x80 0 0x80 0 0
+  ;   BgImage::SetBg /GRADIENT 0 0x80 0 0x80 0 0
+  ;   BgImage::AddText "Testing 1... 2... 3..." $R0 255 0 0 50 50 800 200
+  ;   BgImage::Redraw
+  ; ; FunctionEnd
 
   ;--------------------------------
   ;1. Banner
-    Banner::show "ofxColorManager v1.0"
+	Banner::show "ofxColorManager v1.0"
 
-    Banner::getWindow
-    Pop $1
+	Banner::getWindow
+	Pop $1
 
-    again:
-      IntOp $0 $0 + 1
-      Sleep 1
-      StrCmp $0 100 0 again
+	again:
+	  IntOp $0 $0 + 1
+	  Sleep 0.2
+	  StrCmp $0 100 0 again
 
-    GetDlgItem $2 $1 1030
-    SendMessage $2 ${WM_SETTEXT} 0 "STR:moebiusSurfing 2021"
+	GetDlgItem $2 $1 1030
+	SendMessage $2 ${WM_SETTEXT} 0 "STR:moebiusSurfing 2021"
 
-    again2:
-      IntOp $0 $0 + 1
-      Sleep 1
-      StrCmp $0 200 0 again2
+	again2:
+	  IntOp $0 $0 + 1
+	  Sleep 0.2
+	  StrCmp $0 200 0 again2
 
-    Banner::destroy
+	Banner::destroy
 
   ;--------------------------------
   ;2. Splash Screen
@@ -114,15 +135,15 @@
     # the plugins dir is automatically deleted when the installer exits
     InitPluginsDir
 
-    ;File /oname=$PLUGINSDIR\splash.bmp "${NSISDIR}\Contrib\Graphics\Wizard\orange-nsis.bmp"
     File /oname=$PLUGINSDIR\splash0.bmp "resources\media\img0.bmp"
     File /oname=$PLUGINSDIR\splash1.bmp "resources\media\img1.bmp"
     File /oname=$PLUGINSDIR\splash2.bmp "resources\media\img2.bmp"
     ;File /oname=$PLUGINSDIR\splash.wav "resources\media\s1.wav" #optional
+
     ;splash::show 2000 $PLUGINSDIR\splash1
-    advsplash::show 2000 200 200 -1 $PLUGINSDIR\splash0
-    advsplash::show 1000 200 200 -1 $PLUGINSDIR\splash1
-    advsplash::show 1000 200 200 -1 $PLUGINSDIR\splash2
+    advsplash::show 1000 100 100 -1 $PLUGINSDIR\splash0
+    advsplash::show 500 100 100 -1 $PLUGINSDIR\splash1
+    advsplash::show 500 100 100 -1 $PLUGINSDIR\splash2
 
     Pop $0 ; $0 has '1' if the user closed the splash screen early,
         ; '0' if everything closed normally, and '-1' if some error occurred.
@@ -132,19 +153,24 @@
 
   ;--------------------------------
 
-      ;For the installer
-      !insertmacro MUI_PAGE_WELCOME # simply remove this and other pages if you don't want it
-      !insertmacro MUI_PAGE_LICENSE "resources\LICENSE" # link to an ANSI encoded license file
-      !insertmacro MUI_PAGE_COMPONENTS # remove if you don't want to list components
-      !insertmacro MUI_PAGE_DIRECTORY # ask path and confirmation
-      !insertmacro MUI_PAGE_INSTFILES
-      !insertmacro MUI_PAGE_FINISH
+	;For the installer
+	!insertmacro MUI_PAGE_WELCOME # simply remove this and other pages if you don't want it
+	!insertmacro MUI_PAGE_LICENSE "resources\LICENSE" # link to an ANSI encoded license file
+	!insertmacro MUI_PAGE_COMPONENTS # remove if you don't want to list components to choice
+	!insertmacro MUI_PAGE_DIRECTORY # ask path and confirmation
+		
+	Var StartMenuFolder # allow customize shortcut
+	!insertmacro MUI_PAGE_STARTMENU "Application" $StartMenuFolder
 
-      ;For the uninstaller
-      !insertmacro MUI_UNPAGE_WELCOME
-      !insertmacro MUI_UNPAGE_CONFIRM
-      !insertmacro MUI_UNPAGE_INSTFILES
-      !insertmacro MUI_UNPAGE_FINISH
+	!insertmacro MUI_PAGE_INSTFILES
+	!insertmacro MUI_PAGE_FINISH
+
+
+	;For the uninstaller
+	!insertmacro MUI_UNPAGE_WELCOME
+	!insertmacro MUI_UNPAGE_CONFIRM
+	!insertmacro MUI_UNPAGE_INSTFILES
+	!insertmacro MUI_UNPAGE_FINISH
 
 
     ;--------------------------------
@@ -172,14 +198,14 @@
       File "..\ofxColorManager.exe"
       File "..\*.dll"
       File "..\*.ini"
-      ;File "resources\example_file_component_01.txt"
+	  File "..\..\..\README.md"
 
-      ;OF /data files default location. close to the exe 
+      ;OF /data files 
+	  ;default location. close to the exe! 
       SetOutPath "$INSTDIR\\data" 
       File /r "..\data\*.*"
       ;File "data\assets\fonts\*.*"
-      ;File "..\example_resources\example_file_component_02.txt"
-
+	  
       ;Store installation folder in registry
       WriteRegStr HKLM "Software\${PRODUCT}" "" $INSTDIR
 
@@ -191,13 +217,14 @@
 
       ;Create optional start menu shortcut for uninstaller and Main component
       CreateDirectory "$SMPROGRAMS\${PRODUCT}"
-      ;CreateShortCut "$SMPROGRAMS\${PRODUCT}\Main Component.lnk" "$INSTDIR\example_file_component_01.txt" "" "$INSTDIR\example_file_component_01.txt" 0
       CreateShortCut "$SMPROGRAMS\${PRODUCT}\Uninstall ${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}_Uninstaller.exe" "" "$INSTDIR\${PRODUCT}_Uninstaller.exe" 0
 
       ;main shorcut
       CreateShortCut "$SMPROGRAMS\${PRODUCT}\ofxColorManager.lnk" "$INSTDIR\ofxColorManager.exe" "" "$INSTDIR\ofxColorManager.exe" 0
       ;CreateShortCut "$SMPROGRAMS\${PRODUCT}\${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}.exe" "" "$INSTDIR\${PRODUCT}.exe" 0
-      ;CreateShortCut "$SMPROGRAMS\${PRODUCT}\${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}.exe" 
+
+	  ;README
+	  CreateShortCut "$SMPROGRAMS\${PRODUCT}\README.lnk" "$INSTDIR\README.md" "" "$INSTDIR\README.md" 0
 
       ;Create uninstaller
       WriteUninstaller "${PRODUCT}_Uninstaller.exe"
@@ -209,9 +236,10 @@
     Section "Extra color palettes files" SecTwo
       ; Save something else optional to the installation directory.
       SetOutPath $INSTDIR
-      File "resources\example_file_component_01.txt" # TODO: add another presets folder
-      ;Create optional start menu shortcut for other component
-      CreateShortCut "$SMPROGRAMS\${PRODUCT}\Other Component.lnk" "$INSTDIR\example_file_component_01.txt" "" "$INSTDIR\example_file_component_01.txt" 0
+      # TODO: add another presets folder
+      ;File "resources\example_file_component_01.txt" 
+	  ;Create optional start menu shortcut for other component
+      ;CreateShortCut "$SMPROGRAMS\${PRODUCT}\Other Component.lnk" "$INSTDIR\example_file_component_01.txt" "" "$INSTDIR\example_file_component_01.txt" 0
     SectionEnd
 
     ; Section "Third component (optional - if no remove this entry)"
@@ -266,7 +294,7 @@
      Function .onInstSuccess
 
      ;Open 'Thank you for installing' site or something else
-     ExecShell "open" "microsoft-edge:${AFTER_INSTALLATION_URL}"
+     ;ExecShell "open" "microsoft-edge:${AFTER_INSTALLATION_URL}"
      ;ExecShell "open" "microsoft-edge:https://www.youtube.com/watch?v=oSvGwpbWEuc"
      ;nsExec::Exec '"$0" /C if 1==1 "$INSTDIR\${PRODUCT}.exe"'
 
