@@ -1,5 +1,5 @@
 # Overview
-Make a custom _MS Windows_ installer for your own **OF_App**'ss.
+Make a custom _MS Windows_ installer for your own **OF_App**'s.
 
 ## Screenshot
 ![image](/readme_images/Capture1.JPG?raw=true "image")
@@ -11,6 +11,7 @@ Make a custom _MS Windows_ installer for your own **OF_App**'ss.
 - install **NSIS**.
 - clone this repo into your **OF_APP/bin/** 
 - the folder must contain your **OF_App.exe**, all the OF **.dll**'s, and your **/data/** folder.
+- customize the script.
 - run the **OF_APP__01.nsi** script with **NSIS**.
 - look into folders to replace your image and icon as desired.
 
