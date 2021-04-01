@@ -13,12 +13,12 @@ Make a custom _MS Windows_ installer for your own **OF_App**'s using NSIS from N
 
 ## Usage
 - Install **NSIS**.
-- Clone this repo into your **OF_APP/bin/** 
+- Clone this repo into somewhere and copy it into your **OF_APP/bin/**. 
 - The container folder must contain your **OF_App.exe**, all the OF **.dll**'s, and your **/data/** folder.
-- Customize and execute the **resurces/SCRIPT_Icon.bat** script to set the icon to your exe.
+- Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your exe.
 - Customize the **OF_APP__01.nsi** script.
 - Run the **OF_APP__01.nsi** script with **NSIS**.
-- Look into **/resources** folders to replace your images, start and finish banners, and icon as desired.
+- Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
 
 ## Dependencies
 * [NSIS](https://nsis.sourceforge.io/Main_Page)  
