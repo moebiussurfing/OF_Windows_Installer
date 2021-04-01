@@ -19,7 +19,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 - Check that this folder contains: the **OF_App.exe**, all the required OF **.dll**'s, and your **/data/** folder.
 - Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
 - Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.
-- Customize the **OF_APP__01.nsi** script: enable or disable pages, image splashes, sound playing, data files to copy...etc.
+- Customize the **OF_APP__01.nsi** script:  
+_enable or disable pages, image splashes, sound playing, data files to copy...etc._
 - Double-click or run the **OF_APP__01.nsi** script with **NSIS**.
 - Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
 
