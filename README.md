@@ -34,8 +34,8 @@ _Set your app name! enable or disable pages, image splashes, sound playing, lice
 - **Windows10** / **VS2017** / **OF ~0.11**
 
 ## Thanks
-[OF-Forum from @stubbulon5](https://forum.openframeworks.cc/t/deploying-and-creating-installers-for-windows-and-macos/36887/4)  
-https://github.com/AnonymerNiklasistanonym/NsiWindowsInstallerExamples  
+[OF-Forum topic from @stubbulon5](https://forum.openframeworks.cc/t/deploying-and-creating-installers-for-windows-and-macos/36887/4)  
+[NSIS Modern UI Scripts](https://github.com/AnonymerNiklasistanonym/NsiWindowsInstallerExamples)  
 
 ## Author
 Template by **@moebiusSurfing**  
