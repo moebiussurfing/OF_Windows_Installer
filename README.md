@@ -14,15 +14,14 @@ Make a custom _MS Windows_ installer with uninstaller and start menu shorcuts fo
 ![image](/readme_images/Capture_Example.JPG?raw=true "image")
 
 ## Usage
-- Install **NSIS**.
-- Clone this repo into somewhere and copy it into your **OF_APP/bin/**. 
-- The container folder must contain your **OF_App.exe**, all the OF **.dll**'s, and your **/data/** folder.
-- Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your exe.
+- Download and install **NSIS**.
+- Clone this repo into somewhere and copy it into your **OF_APP/bin/** project(s). 
+- The container folder must have the **OF_App.exe**, all the OF **.dll**'s, and your **/data/** folder.
 - Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
+- Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your exe.
 - Customize the **OF_APP__01.nsi** script.
 - Run the **OF_APP__01.nsi** script with **NSIS**.
 - Your installer **OF_App_Setup.exe** will be created.
-- **/misc/** has other learning scripts.  
 
 ## Dependencies
 * [NSIS](https://nsis.sourceforge.io/Main_Page)  
