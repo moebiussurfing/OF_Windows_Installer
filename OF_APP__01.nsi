@@ -1,6 +1,7 @@
 ;script based into NsiWindowsInstallerExamples-master
 ;help:
 ;https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html
+;more important step is to replace ofxColorManager with your app name
 
 ;--------------------------------
 ;Include Modern UI
@@ -195,16 +196,15 @@ SetOutPath $INSTDIR
 
 ;Put the following file in the SetOutPath
 ;File "..\${PRODUCT}.exe" # auto name
-File "..\ofxColorManager.exe"
-File "..\*.dll"
-File "..\*.ini"
-File "..\..\..\README.md"
+File "..\ofxColorManager.exe" # set your app exe name here!
+File "..\*.dll" # usually the dll
+File "..\*.ini" # my .ini files out of /data
+File "..\..\..\README.md" # my readme
 
 ;OF /data files 
 ;default location. close to the exe! 
-SetOutPath "$INSTDIR\\data" 
-File /r "..\data\*.*"
-;File "data\assets\fonts\*.*"
+SetOutPath "$INSTDIR\\data" # that's the typical OF scenario!
+File /r "..\data\*.*" # recursive access to all the folders and files! 
 
 ;Store installation folder in registry
 WriteRegStr HKLM "Software\${PRODUCT}" "" $INSTDIR
