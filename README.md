@@ -16,10 +16,11 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 ## Usage
 1. Download and install **NSIS**.
 2. Clone this repo somewhere and copy it into your **OF_APP/bin/** project(s). 
-3. Check that this folder contains: the **OF_App.exe**, all the required OF **.dll**'s, and your **/data/** folder.
-4. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
-5. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.
-6. Customize the **OF_APP__01.nsi** script:  
+3. Check that this folder contains:  
+_the **OF_App.exe**, all the required OF **.dll**'s, and your **/data/** folder._
+5. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
+6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.
+7. Customize the **OF_APP__01.nsi** script:  
 _Set your app name!, enable or disable pages, image splashes, sound playing, license, data files to copy, finish page links...etc._
 7. Double-click or run the **OF_APP__01.nsi** script with **NSIS**.
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
