@@ -28,7 +28,7 @@ _Set your app name! enable or disable pages, image splashes, sound playing, lice
 
 ## Dependencies
 * [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
+* [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0). Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe)
  
 ## Tested systems
 - **Windows10** / **VS2017** / **OF ~0.11**
