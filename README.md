@@ -15,9 +15,10 @@ Example Structure Files:
 - Install **NSIS**.
 - Clone this repo into your **OF_APP/bin/** 
 - The container folder must contain your **OF_App.exe**, all the OF **.dll**'s, and your **/data/** folder.
-- Customize the script.
+- Customize and execute the **resurces/SCRIPT_Icon.bat** script to set the icon to your exe.
+- Customize the **OF_APP__01.nsi** script.
 - Run the **OF_APP__01.nsi** script with **NSIS**.
-- Look into folders to replace your image and icon as desired.
+- Look into **/resources** folders to replace your images, start and finish banners, and icon as desired.
 
 ## Dependencies
 * [NSIS](https://nsis.sourceforge.io/Main_Page)  
