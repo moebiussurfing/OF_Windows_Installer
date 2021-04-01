@@ -1,5 +1,5 @@
 # Overview
-Make a custom _MS Windows_ installer for your own **OF_App**'s.
+Make a custom _MS Windows_ installer for your own **OF_App**'s using NSIS from Nullsoft.
 
 ## Screenshots
 * Installation Process:  
