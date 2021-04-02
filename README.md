@@ -23,7 +23,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 5. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
 6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
 (Uses **rcedit-x64.exe**)
-7. Customize the **OF_APP__01.nsi** script:  
+7. Customize the **OF_APP__SCRIPT.nsi** script:  
    * Set your app name! 
    * Enable or disable pages.
    * Start/Finish image splashes.
@@ -31,7 +31,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
    * Your license file.
    * Set data files to copy.
    * Finish page links.
-7. Double-click or run the **OF_APP__01.nsi** script with **NSIS**.
+7. Double-click or run the **OF_APP__SCRIPT.nsi** script with **NSIS**.
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
 9. Check if you have already installed **Microsoft Visual C++ Redistributable**.
 
@@ -50,6 +50,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 ## Useful Links
 [Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)  
+[NSIS Wiki](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)  
+[NSIS GitHub](https://github.com/kichik/nsis)  
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## Author
