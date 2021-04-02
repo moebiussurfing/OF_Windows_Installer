@@ -55,8 +55,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## NOTE
-* To disable the console window of your OF_App, you can add this line to the file **main.cpp´**, before and out of **main()** function:  
-```#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")``` 
+* To disable the console window of your **OF_App**, you can add this line to the file **main.cpp**, before and out of **main(){}** function: ```#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")``` 
 
 ## Author
 Template by **@moebiusSurfing**  
