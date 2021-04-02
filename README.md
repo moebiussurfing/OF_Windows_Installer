@@ -21,7 +21,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
     * all the required OF **.dll**'s
     * and your **/data/** folder
 5. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
-6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file. (Uses **rcedit-x64.exe**)
+6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
+(Uses **rcedit-x64.exe**)
 7. Customize the **OF_APP__01.nsi** script:  
    * Set your app name! 
    * enable or disable pages
@@ -35,8 +36,9 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 9. Check if you have already installed **Microsoft Visual C++ Redistributable**.
 
 ## Dependencies
-* [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0). (Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
+* Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
+* Required to run an **OF_App**: [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
+(Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
  
 ## Tested systems
 - **Windows10** / **VS2017** / **OF ~0.11**
@@ -46,8 +48,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [NSIS Modern UI Scripts](https://github.com/AnonymerNiklasistanonym/NsiWindowsInstallerExamples)  
 
 ## Useful Links
-[Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)
-[Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)
+[Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)  
+[Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## Author
 Template by **@moebiusSurfing**  
