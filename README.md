@@ -45,6 +45,10 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [OF-Forum topic from @stubbulon5](https://forum.openframeworks.cc/t/deploying-and-creating-installers-for-windows-and-macos/36887/4)  
 [NSIS Modern UI Scripts](https://github.com/AnonymerNiklasistanonym/NsiWindowsInstallerExamples)  
 
+## Useful Links
+[Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)
+[Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)
+
 ## Author
 Template by **@moebiusSurfing**  
 *(ManuMolina). 2021.*

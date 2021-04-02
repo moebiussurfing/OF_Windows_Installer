@@ -552,3 +552,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+misc/scripts/Windows_6.3_Constants.ini

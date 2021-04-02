@@ -32,6 +32,7 @@
 ;Text for a link on the which the user can click to view a website or file.
 !define MUI_FINISHPAGE_LINK_LOCATION https://twitter.com/moebiussurfing
 ;Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.
+;!define MUI_FINISHPAGE_LINK_COLOR "00FF00" ;custom license colors
 
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT ;free some space
 
@@ -142,6 +143,8 @@ File /oname=$PLUGINSDIR\splash2.bmp "resources\media\img2.bmp"
 ;File /oname=$PLUGINSDIR\splash.wav "resources\media\s1.wav" #optional
 
 ;splash::show 2000 $PLUGINSDIR\splash1
+
+;advsplash::show Delay FadeIn FadeOut KeyColor FileName
 advsplash::show 1000 100 100 -1 $PLUGINSDIR\splash0
 advsplash::show 500 100 100 -1 $PLUGINSDIR\splash1
 advsplash::show 500 100 100 -1 $PLUGINSDIR\splash2
@@ -160,8 +163,10 @@ FunctionEnd
 !insertmacro MUI_PAGE_COMPONENTS # remove if you don't want to list components to choice
 !insertmacro MUI_PAGE_DIRECTORY # ask path and confirmation
 
-Var StartMenuFolder # allow customize shortcut
-!insertmacro MUI_PAGE_STARTMENU "Application" $StartMenuFolder
+;TODO: to allow this customization we must get the path from the user
+;look /misc/scripts/StartMenu.nsi example
+;Var StartMenuFolder # allow customize shortcut
+;!insertmacro MUI_PAGE_STARTMENU "Application" $StartMenuFolder
 
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -231,16 +236,18 @@ WriteUninstaller "${PRODUCT}_Uninstaller.exe"
 
 SectionEnd
 
-#optional
+;----
 
-Section "Extra color palettes files" SecTwo
+#optional
+;uncomment all the SecTwo sections and define the files to copy
+;Section "Extra color palettes files" SecTwo
 ; Save something else optional to the installation directory.
-SetOutPath $INSTDIR
+;SetOutPath $INSTDIR
 # TODO: add another presets folder
 ;File "resources\example_file_component_01.txt" 
 ;Create optional start menu shortcut for other component
 ;CreateShortCut "$SMPROGRAMS\${PRODUCT}\Other Component.lnk" "$INSTDIR\example_file_component_01.txt" "" "$INSTDIR\example_file_component_01.txt" 0
-SectionEnd
+;SectionEnd
 
 ; Section "Third component (optional - if no remove this entry)"
 ;   ; Save files/a file to the Windows AppData folder
@@ -254,12 +261,12 @@ SectionEnd
 
 ;Language strings
 LangString DESC_SecMain ${LANG_ENGLISH} "Main program and data files. Adds an user kit with many colors palette presets."
-LangString DESC_SecTwo ${LANG_ENGLISH} "Extra kit with several colors palette presets."
+;LangString DESC_SecTwo ${LANG_ENGLISH} "Extra kit with several colors palette presets."
 
 ;Assign language strings to sections
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
-!insertmacro MUI_DESCRIPTION_TEXT ${SecTwo} $(DESC_SecTwo)
+;!insertmacro MUI_DESCRIPTION_TEXT ${SecTwo} $(DESC_SecTwo)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 
@@ -294,6 +301,8 @@ SectionEnd
 Function .onInstSuccess
 
 ;Open 'Thank you for installing' site or something else
+; windows redistributable 
+ExecShell "open" "microsoft-edge:https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0"
 ;ExecShell "open" "microsoft-edge:${AFTER_INSTALLATION_URL}"
 ;ExecShell "open" "microsoft-edge:https://www.youtube.com/watch?v=oSvGwpbWEuc"
 ;nsExec::Exec '"$0" /C if 1==1 "$INSTDIR\${PRODUCT}.exe"'
