@@ -17,27 +17,28 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 1. Download and install [**NSIS**](https://nsis.sourceforge.io/Main_Page) .
 2. Clone this repo somewhere and copy the folder into your **OF_APP/bin/** project(s). 
 3. Check that this folder contains:  
-    * the (copied/renamed) **OF_App.exe**
-    * all the required OF **.dll**'s
-    * and your **/data/** folder
+    * The (copied/renamed) **OF_App.exe**.
+    * All the required OF **.dll**'s.
+    * Your **/data/** folder.
 5. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
 6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
 (Uses **rcedit-x64.exe**)
 7. Customize the **OF_APP__01.nsi** script:  
    * Set your app name! 
-   * enable or disable pages
-   * start/finish image splashes
-   * sound playing
-   * your license file
-   * set data files to cop
-   * finish page links
+   * Enable or disable pages.
+   * Start/Finish image splashes.
+   * Sound playing.
+   * Your license file.
+   * Set data files to copy.
+   * Finish page links.
 7. Double-click or run the **OF_APP__01.nsi** script with **NSIS**.
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
 9. Check if you have already installed **Microsoft Visual C++ Redistributable**.
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* Required to run an **OF_App**: [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
+* Required to run an **OF_App**:  
+[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
 (Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
  
 ## Tested systems
