@@ -26,8 +26,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 7. Customize the **OF_APP__SCRIPT.nsi** script:  
    * Set your app name! 
    * Enable or disable pages.
-   * Start/Finish image splashes.
-   * Sound playing.
+   * Slideshow intro with faded BMP images. Start/Finish image splashes.
+   * Sound playing during splash intro.
    * Your license file.
    * Set data files to copy.
    * Finish page links.
