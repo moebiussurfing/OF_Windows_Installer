@@ -140,7 +140,12 @@ InitPluginsDir
 File /oname=$PLUGINSDIR\splash0.bmp "resources\media\img0.bmp"
 File /oname=$PLUGINSDIR\splash1.bmp "resources\media\img1.bmp"
 File /oname=$PLUGINSDIR\splash2.bmp "resources\media\img2.bmp"
-;File /oname=$PLUGINSDIR\splash.wav "resources\media\s1.wav" #optional
+
+;File /oname=$PLUGINSDIR\splash0.wav "resources\media\s1.wav" 
+#optional with the same name than first bmp file
+;will stop when slide finish... So you must set a long slide and a short audio...
+;TODO: find a way to play a loop during all the installation process...
+;BgImage does this but it seems not working with modern ui...
 
 ;splash::show 2000 $PLUGINSDIR\splash1
 
