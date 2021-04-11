@@ -20,20 +20,19 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
     * The (copied/renamed) **OF_App.exe**.
     * All the required OF **.dll**'s.
     * Your **/data/** folder.
-5. Look into **/resources/** folders to replace your images, start and finish banners, and icon as desired.
-6. Customize and execute the **/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
+5. Look into **OF_Windows_Installer/resources/** folders to replace your images, start and finish banners, and icon as desired.
+6. Customize and execute the **OF_Windows_Installer/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
 (Uses **rcedit-x64.exe**)
 7. Customize the **OF_APP__SCRIPT.nsi** script:  
    * Set your app name! 
    * Enable or disable pages.
-   * Start/Finish image splashes.
-   * Sound playing.
+   * Slideshow intro with faded BMP images. Start/Finish image splashes.
+   * Sound playing during splash intro.
    * Your license file.
    * Set data files to copy.
    * Finish page links.
 7. Double-click or run the **OF_APP__SCRIPT.nsi** script with **NSIS**.
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
-9. Check if you have already installed **Microsoft Visual C++ Redistributable**.
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
@@ -55,7 +54,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## NOTE
-* To disable the console window of your **OF_App**, you can add this line to the file **main.cpp**, before and out of **main(){}** function: ```#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")``` 
+* To hide the black console window of your **OF_App**, you can add this line to the file **main.cpp**, before and out of **main(){}** function:  
+```#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")``` 
 
 ## Author
 Template by **@moebiusSurfing**  
