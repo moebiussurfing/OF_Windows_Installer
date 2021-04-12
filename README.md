@@ -11,7 +11,9 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 * Example Structure Files:  
 
-![image](/readme_images/Capture_Example.JPG?raw=true "image")
+![image](/readme_images/Capture_1.PNG?raw=true "image")
+![image](/readme_images/Capture_2.PNG?raw=true "image")
+![image](/readme_images/Capture_3.PNG?raw=true "image")
 
 ## Usage
 1. Download and install [**NSIS**](https://nsis.sourceforge.io/Main_Page) .
@@ -36,7 +38,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* Required to run an **OF_App**:  
+* Required to run an **OF_App** in other machines:  
 [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
 (Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
  
@@ -51,6 +53,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)  
 [NSIS Wiki](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)  
 [NSIS GitHub](https://github.com/kichik/nsis)  
+[PNG to ICON Converter](https://icoconvert.com/)
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## NOTE

@@ -1,7 +1,21 @@
-;script based into NsiWindowsInstallerExamples-master
-;help:
-;https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html
-;more important step is to replace ofxColorManager with your app name
+; NSIS Script 
+; make your own MS Windows installer for your compiled OpenFrameworks App.
+; https://github.com/moebiussurfing/OF_Windows_Installer
+;
+; This script is based into NsiWindowsInstallerExamples-master
+;
+; help:
+; https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html
+
+
+; more important step is to replace 'Paletto' with your app name
+;
+; CUSTOMIZE: 
+; Define the name of the product.
+; In this case it's the same name for the produt title than the .exe file:
+; /bin/Paletto.exe is my copied and renamed file after the binary compilation.
+!define PRODUCT "Paletto"
+
 
 ;--------------------------------
 ;Include Modern UI
@@ -19,73 +33,87 @@
 
 ; finish window
 
-;disable autoclose to all read final log
+; disable autoclose to all read final log
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
-!define MUI_FINISHPAGE_RUN ofxColorManager.exe
+; run the installed program at finish
+!define MUI_FINISHPAGE_RUN ${PRODUCT}.exe
+;!define MUI_FINISHPAGE_RUN Paletto.exe
 ;!define MUI_FINISHPAGE_RUN_TEXT enjoy!
+
+; for printing on last window of installation process:
 
 !define MUI_FINISHPAGE_SHOWREADME README.md
 ;!define MUI_FINISHPAGE_SHOWREADME_TEXT text
 
+; CUSTOMIZE: set your account links
 !define MUI_FINISHPAGE_LINK Twitter:@moebiussurfing
 ;Text for a link on the which the user can click to view a website or file.
 !define MUI_FINISHPAGE_LINK_LOCATION https://twitter.com/moebiussurfing
 ;Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.
 ;!define MUI_FINISHPAGE_LINK_COLOR "00FF00" ;custom license colors
 
-!define MUI_FINISHPAGE_NOREBOOTSUPPORT ;free some space
+; free some space. we don't need it bc reboot is not offered to the user and finish
+!define MUI_FINISHPAGE_NOREBOOTSUPPORT
 
 ;--------------------------------
-;General
+; General
 
-;Properly display all languages
+; Properly display all languages
 Unicode true
 
-;Define name of the product
-!define PRODUCT "ofxColorManager"
+; Define optional URL that will be opened after the installation was successful
+# here we link to visual studio c++ redistributable required for OF apps
+!define AFTER_INSTALLATION_URL "https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0"
+;!define AFTER_INSTALLATION_URL "https://github.com/moebiussurfing/ofxColorManager"
+;!define AFTER_INSTALLATION_URL "https://moebiussurfing.itch.io/paletto"
 
-;Define optional URL that will be opened after the installation was successful
-!define AFTER_INSTALLATION_URL "https://github.com/moebiussurfing/ofxColorManager"
-
-;Define the main name of the installer
+; Define the main name of the installer
 Name "${PRODUCT}"
 
-;Define the directory where the installer should be saved
+; Define the directory where the installer should be saved and the setup filename 
 ;OutFile "output\${PRODUCT}_Setup.exe"
-OutFile "${PRODUCT}_Setup.exe"
+OutFile "${PRODUCT}_Setup.exe" # here is on the root path, next to this .nsi script file.
 
-;Define the default installation folder (Windows ProgramFiles example)
+; Define the default installation folder (Windows ProgramFiles example)
+;NOTE: i don't know why it selects by default the Program Files (x86) folder.. not the x64 Program Files
+; more info here: https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394
 InstallDir "$PROGRAMFILES\${PRODUCT}"
 
-;Define optional a directory for program files that change (Windows AppData example)
+; Define an optional directory for program files that change (Windows AppData example)
 ;!define INSTDIR_DATA "$PROGRAMFILES\${PRODUCT}\\data\"
 
-;Request rights if you want to install the program to program files
+; Request rights if you want to install the program to program files
 RequestExecutionLevel admin
 
-;Show 'console' in installer and uninstaller
+; Show 'console' in installer and uninstaller
 ShowInstDetails "show"
 ShowUninstDetails "show"
 
-;Get installation folder from registry if available
+; Get installation folder from registry if available
 InstallDirRegKey HKLM "Software\${PRODUCT}" ""
 
 
 ;--------------------------------
-;Interface Settings
+; Interface Settings
 
-;Show warning if user wants to abort
+; Show warning if user wants to abort
 !define MUI_ABORTWARNING
 
-;Show all languages, despite user's codepage
+; Show all languages, despite user's codepage
 ;!define MUI_LANGDLL_ALLLANGUAGES
 
-;Use optional a custom icon:
+; CUSTOMIZE: create your squared png icon and convert to ico using a convertor like ie: 
+; https://icoconvert.com/
+
+; Use optional a custom icon:
 !define MUI_ICON "resources\example_icon_installer.ico" # for the Installer
 !define MUI_UNICON "resources\example_icon_uninstaller.ico" # for the later created UnInstaller
 
-;Use optional a custom picture for the 'Welcome' and 'Finish' page:
+; CUSTOMIZE: update these files in your photo editor if you like.
+; notice that must bmp format, not jpg or png are supported.
+
+; Use optional a custom picture for the 'Welcome' and 'Finish' page:
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_WELCOMEFINISHPAGE_BITMAP "resources\example_picture_installer.bmp"  # for the Installer
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "resources\example_picture_uninstaller.bmp"  # for the later created UnInstaller
@@ -111,7 +139,9 @@ Function .onInit
 
 ;--------------------------------
 ;1. Banner
-Banner::show "ofxColorManager v1.0"
+; Banner::show "Paletto v1.0"
+Banner::show "${PRODUCT} v1.0"
+; CUSTOMIZE: you can tweak the intro banners with your app version or whatever..
 
 Banner::getWindow
 Pop $1
@@ -122,6 +152,8 @@ again:
   StrCmp $0 100 0 again
 
 GetDlgItem $2 $1 1030
+
+; CUSTOMIZE: you can tweak the intro banners with your app version or whatever..
 SendMessage $2 ${WM_SETTEXT} 0 "STR:moebiusSurfing 2021"
 
 again2:
@@ -140,19 +172,14 @@ InitPluginsDir
 File /oname=$PLUGINSDIR\splash0.bmp "resources\media\img0.bmp"
 File /oname=$PLUGINSDIR\splash1.bmp "resources\media\img1.bmp"
 File /oname=$PLUGINSDIR\splash2.bmp "resources\media\img2.bmp"
+; File /oname=$PLUGINSDIR\splash0.wav "resources\media\s2.wav" #optional with the same name than first bmp file
 
-;File /oname=$PLUGINSDIR\splash0.wav "resources\media\s1.wav" 
-#optional with the same name than first bmp file
-;will stop when slide finish... So you must set a long slide and a short audio...
-;TODO: find a way to play a loop during all the installation process...
-;BgImage does this but it seems not working with modern ui...
-
-;splash::show 2000 $PLUGINSDIR\splash1
+; splash::show 2000 $PLUGINSDIR\splash1
 
 ;advsplash::show Delay FadeIn FadeOut KeyColor FileName
-advsplash::show 1000 100 100 -1 $PLUGINSDIR\splash0
-advsplash::show 500 100 100 -1 $PLUGINSDIR\splash1
-advsplash::show 500 100 100 -1 $PLUGINSDIR\splash2
+advsplash::show 2000 200 200 -1 $PLUGINSDIR\splash0
+advsplash::show 1000 200 200 -1 $PLUGINSDIR\splash1
+advsplash::show 1000 200 200 -1 $PLUGINSDIR\splash2
 
 Pop $0 ; $0 has '1' if the user closed the splash screen early,
 ; '0' if everything closed normally, and '-1' if some error occurred.
@@ -204,14 +231,17 @@ SectionIn RO # Just means if in component mode this is locked
 ;Set output path to the installation directory.
 SetOutPath $INSTDIR
 
+;OpenFrameworks
 ;Put the following file in the SetOutPath
-;File "..\${PRODUCT}.exe" # auto name
-File "..\ofxColorManager.exe" # set your app exe name here!
-File "..\*.dll" # usually the dll
-File "..\*.ini" # my .ini files out of /data
+;File "..\Paletto.exe" # set your app exe name here!
+File "..\${PRODUCT}.exe" # set your app exe name here! (Notice that in this case I use the same name for the product and for the exe file)
+File "..\*.dll" # usually all the OF's required dll's
+;
+;Optional:
+File "..\*.ini" # my ImGui.ini files out of bin/data. (they are on /bin)
 File "..\..\..\README.md" # my readme
 
-;OF /data files 
+;OpenFrameworks /data/ files 
 ;default location. close to the exe! 
 SetOutPath "$INSTDIR\\data" # that's the typical OF scenario!
 File /r "..\data\*.*" # recursive access to all the folders and files! 
@@ -230,8 +260,8 @@ CreateDirectory "$SMPROGRAMS\${PRODUCT}"
 CreateShortCut "$SMPROGRAMS\${PRODUCT}\Uninstall ${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}_Uninstaller.exe" "" "$INSTDIR\${PRODUCT}_Uninstaller.exe" 0
 
 ;main shorcut
-CreateShortCut "$SMPROGRAMS\${PRODUCT}\ofxColorManager.lnk" "$INSTDIR\ofxColorManager.exe" "" "$INSTDIR\ofxColorManager.exe" 0
-;CreateShortCut "$SMPROGRAMS\${PRODUCT}\${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}.exe" "" "$INSTDIR\${PRODUCT}.exe" 0
+CreateShortCut "$SMPROGRAMS\${PRODUCT}\${PRODUCT}.lnk" "$INSTDIR\${PRODUCT}.exe" "" "$INSTDIR\${PRODUCT}.exe" 0
+; CreateShortCut "$SMPROGRAMS\${PRODUCT}\Paletto.lnk" "$INSTDIR\Paletto.exe" "" "$INSTDIR\Paletto.exe" 0
 
 ;README
 CreateShortCut "$SMPROGRAMS\${PRODUCT}\README.lnk" "$INSTDIR\README.md" "" "$INSTDIR\README.md" 0
@@ -265,13 +295,14 @@ SectionEnd
 ;Descriptions
 
 ;Language strings
-LangString DESC_SecMain ${LANG_ENGLISH} "Main program and data files. Adds an user kit with many colors palette presets."
-;LangString DESC_SecTwo ${LANG_ENGLISH} "Extra kit with several colors palette presets."
+;CUSTOMIZE: set your descriptions here:
+LangString DESC_SecMain ${LANG_ENGLISH} "Main Program and Data files. Adds a user kit with many color palette Presets."
+;LangString DESC_SecTwo ${LANG_ENGLISH} "Extra Kit with EXTRA color palette Presets." # optional item
 
 ;Assign language strings to sections
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
-;!insertmacro MUI_DESCRIPTION_TEXT ${SecTwo} $(DESC_SecTwo)
+;!insertmacro MUI_DESCRIPTION_TEXT ${SecTwo} $(DESC_SecTwo) # optional item
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 
@@ -306,10 +337,13 @@ SectionEnd
 Function .onInstSuccess
 
 ;Open 'Thank you for installing' site or something else
-; windows redistributable 
-ExecShell "open" "microsoft-edge:https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0"
-;ExecShell "open" "microsoft-edge:${AFTER_INSTALLATION_URL}"
-;ExecShell "open" "microsoft-edge:https://www.youtube.com/watch?v=oSvGwpbWEuc"
+;Download extra required files or open a YouTube link or even open the currently instaled app.
+
+ExecShell "open" "microsoft-edge:${AFTER_INSTALLATION_URL}"
+
+; windows redistributable: 
+;ExecShell "open" "microsoft-edge:https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0"
+; execute an exe file:
 ;nsExec::Exec '"$0" /C if 1==1 "$INSTDIR\${PRODUCT}.exe"'
 
 FunctionEnd
