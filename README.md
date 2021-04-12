@@ -11,9 +11,9 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 * Example Structure Files:  
 
+![image](/readme_images/Capture_0.PNG?raw=true "image")
 ![image](/readme_images/Capture_1.PNG?raw=true "image")
 ![image](/readme_images/Capture_2.PNG?raw=true "image")
-![image](/readme_images/Capture_3.PNG?raw=true "image")
 
 ## Usage
 1. Download and install [**NSIS**](https://nsis.sourceforge.io/Main_Page) .
