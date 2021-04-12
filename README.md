@@ -23,8 +23,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
     * All the required OF **.dll**'s.
     * Your **/data/** folder.
 5. Look into **OF_Windows_Installer/resources/** folders to replace your images, start and finish banners, and icon as desired.
-6. Customize and execute the **OF_Windows_Installer/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file.  
-(Uses **rcedit-x64.exe**)
+6. Customize and execute the **OF_Windows_Installer/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file. (Uses **rcedit-x64.exe**)  
 On **Windows Power-Shell**:
 ```.bat
 cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
@@ -44,8 +43,7 @@ cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* Required to run an **OF_App** in other machines:  
-[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
+* Required to run an **OF_App** in other machines: [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
 (Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
  
 ## Tested systems

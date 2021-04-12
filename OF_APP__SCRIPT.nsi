@@ -37,14 +37,16 @@
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
 ; run the installed program at finish
-!define MUI_FINISHPAGE_RUN ${PRODUCT}.exe
+;!define MUI_FINISHPAGE_RUN ${PRODUCT}.exe
+!define MUI_FINISHPAGE_RUN "$INSTDIR\\${PRODUCT}.exe"
 ;!define MUI_FINISHPAGE_RUN Paletto.exe
 ;!define MUI_FINISHPAGE_RUN_TEXT enjoy!
 
 ; for printing on last window of installation process:
 
-!define MUI_FINISHPAGE_SHOWREADME README.md
+; !define MUI_FINISHPAGE_SHOWREADME README.md
 ;!define MUI_FINISHPAGE_SHOWREADME_TEXT text
+!define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\README.md"
 
 ; CUSTOMIZE: set your account links
 !define MUI_FINISHPAGE_LINK Twitter:@moebiussurfing
