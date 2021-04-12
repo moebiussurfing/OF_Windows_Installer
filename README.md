@@ -57,7 +57,7 @@ cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
 [Modern UI README](https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html)  
 [NSIS Wiki](https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System)  
 [NSIS GitHub](https://github.com/kichik/nsis)  
-[PNG to ICON Converter](https://icoconvert.com/)  
+[PNG to ICO Converter](https://icoconvert.com/)  
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## NOTE
