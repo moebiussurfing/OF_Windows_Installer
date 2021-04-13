@@ -17,12 +17,6 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
     * All the required OF **.dll**'s.
     * Your **/data/** folder.
 5. Look into **OF_Windows_Installer/resources/** folders to replace your images, start and finish banners, and icon as desired.
-6. Customize and execute the **OF_Windows_Installer/resources/SCRIPT_Icon.bat** script to set the icon to your **.exe** file. (Uses **rcedit-x64.exe**)  
-On **Windows Power-Shell**:
-```.bat
-cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
-.\SCRIPT_Icon.bat
-```
 
 7. Customize the **SCRIPT_OF_APP.nsi** script:  
    * Set your app name! 
@@ -32,11 +26,15 @@ cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
    * Your license file.
    * Set data files to copy.
    * Finish page links.
-7. Double-click or run the **SCRIPT_OF_APP.nsi** script with **NSIS**.
-8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
+
+7. Double click *SCRIPT_DEPLOY.bat*. This script has two steps:  
+    * Set the icon to your **.exe** file. (Using **rcedit-x64.exe**)  
+    * Run the **SCRIPT_OF_APP.nsi** script with **NSIS**.
+
+8. Your installer **OF_App_Setup.exe** will be created there, next to the **.bat** / **.nsi** scripts.
 
 ## Example
-* Double click **SCRIPT_DEPLOY.bat** using *Windows explorer*:  
+* Double click **SCRIPT_DEPLOY.bat** using *Windows Explorer*:  
 *\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat*
 * Run the generated *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe* and install the app into your system.  
 * That's it!
