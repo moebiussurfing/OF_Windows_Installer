@@ -35,7 +35,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 ## Example
    * (Optional) Run the pre-made installer **\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe**.
-   * Delete **guiExample_Setup.exe** and deploy the installer by your self.
+   * Delete **guiExample_Setup.exe** to deploy the installer by your self:
    * Double click **SCRIPT_DEPLOY.bat** using *Windows Explorer*:  
      **\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat**
    * Run the generated **\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe** and install the app into your system.  
