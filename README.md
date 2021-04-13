@@ -42,8 +42,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
 * Required to run an **OF_App** in other machines:  
-[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
-(Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
+[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)  
+( Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe) )
  
 ## Tested systems
 - **Windows10** / **VS2017** / **OF ~0.11**
