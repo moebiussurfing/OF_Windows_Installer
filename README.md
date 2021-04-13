@@ -19,7 +19,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 5. Look into **OF_Windows_Installer/resources/** folders to replace your images, start and finish banners, and icon as desired.
 
 7. Customize the **SCRIPT_OF_APP.nsi** script:  
-   * Set your .exe app name, app tittle and developer name. 
+   * Set your .exe app name, app title, and developer name. 
    * Enable or disable pages.
    * Slideshow intro with faded BMP images. Start / Finish image splashes.
    * Sound playing during splash intro.
@@ -34,6 +34,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.bat** / **.nsi** scripts.
 
 ## Example
+* (optional) Run the installer *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe*.
+* Delete *guiExample_Setup.exe* and deploy the installer by your self.
 * Double click **SCRIPT_DEPLOY.bat** using *Windows Explorer*:  
 *\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat*
 * Run the generated *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe* and install the app into your system.  
@@ -60,7 +62,7 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 [Environtment constants](https://stackoverflow.com/questions/9087538/is-programfiles-a-constant-declared-in-nsis-or-is-it-the-environment-variable-r/44380394#44380394)  
 
 ## NOTE
-* To hide the black console window of your **OF_App**, you can add this line to the file **main.cpp**, before and out of **main(){}** function:  
+* To hide the black console window of your **OF_App**, you can add this line to the file **main.cpp**, before and out of **main(){ }** function:  
 ```#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")``` 
 
 ## Author
