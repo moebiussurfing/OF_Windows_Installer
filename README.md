@@ -13,15 +13,15 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 1. Download and install [**NSIS**](https://nsis.sourceforge.io/Main_Page) .
 2. Clone this repo somewhere and copy the folder into your **OF_APP/bin/** project(s). 
 3. Check that this folder contains:  
-    * The (copied/renamed) **OF_App.exe**.
+    * The (copied / renamed) **OF_App.exe**.
     * All the required OF **.dll**'s.
     * Your **/data/** folder.
 5. Look into **OF_Windows_Installer/resources/** folders to replace your images, start and finish banners, and icon as desired.
 
 7. Customize the **SCRIPT_OF_APP.nsi** script:  
-   * Set your app name! 
+   * Set your .exe app name, app tittle and developer name. 
    * Enable or disable pages.
-   * Slideshow intro with faded BMP images. Start/Finish image splashes.
+   * Slideshow intro with faded BMP images. Start / Finish image splashes.
    * Sound playing during splash intro.
    * Your license file.
    * Set data files to copy.
@@ -41,7 +41,8 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
-* Required to run an **OF_App** in other machines: [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
+* Required to run an **OF_App** in other machines:  
+[Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0).  
 (Usually [x64: vc_redist.x64.exe](https://aka.ms/vs/16/release/vc_redist.x64.exe))
  
 ## Tested systems
