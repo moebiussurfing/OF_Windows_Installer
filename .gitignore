@@ -175,7 +175,7 @@ Desktop.ini
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+#*.dll
 
 # Fortran module files
 *.mod
@@ -188,7 +188,7 @@ Desktop.ini
 *.lib
 
 # Executables
-*.exe
+#*.exe
 *.out
 *.app
 

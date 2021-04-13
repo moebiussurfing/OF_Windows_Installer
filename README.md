@@ -9,12 +9,6 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 ![image](/readme_images/Capture3.JPG?raw=true "image")
 ![image](/readme_images/Capture4.JPG?raw=true "image")
 
-* Example Structure Files:  
-
-![image](/readme_images/Capture_0.PNG?raw=true "image")
-![image](/readme_images/Capture_1.PNG?raw=true "image")
-![image](/readme_images/Capture_2.PNG?raw=true "image")
-
 ## Usage
 1. Download and install [**NSIS**](https://nsis.sourceforge.io/Main_Page) .
 2. Clone this repo somewhere and copy the folder into your **OF_APP/bin/** project(s). 
@@ -30,7 +24,7 @@ cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
 .\SCRIPT_Icon.bat
 ```
 
-7. Customize the **OF_APP__SCRIPT.nsi** script:  
+7. Customize the **SCRIPT_OF_APP.nsi** script:  
    * Set your app name! 
    * Enable or disable pages.
    * Slideshow intro with faded BMP images. Start/Finish image splashes.
@@ -38,8 +32,14 @@ cd \YOUR_OF_APP\bin\OF_Windows_Installer\resources
    * Your license file.
    * Set data files to copy.
    * Finish page links.
-7. Double-click or run the **OF_APP__SCRIPT.nsi** script with **NSIS**.
+7. Double-click or run the **SCRIPT_OF_APP.nsi** script with **NSIS**.
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.nsi** script.
+
+## Example
+* Double click **SCRIPT_DEPLOY.bat** using *Windows explorer*:  
+*\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat*
+* Run the generated *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe* and install the app into your system.  
+* That's it!
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
