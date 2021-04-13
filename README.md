@@ -34,12 +34,12 @@ Template to make a custom _MS Windows_ installer with uninstaller and start menu
 8. Your installer **OF_App_Setup.exe** will be created there, next to the **.bat** / **.nsi** scripts.
 
 ## Example
-  * (Optional) Run the pre-made installer **\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe**.
-  * Delete **guiExample_Setup.exe** and deploy the installer by your self.
-  * Double click **SCRIPT_DEPLOY.bat** using *Windows Explorer*:  
-  *\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat*
-  * Run the generated *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe* and install the app into your system.  
-  * That's it!
+    * (Optional) Run the pre-made installer **\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe**.
+    * Delete **guiExample_Setup.exe** and deploy the installer by your self.
+    * Double click **SCRIPT_DEPLOY.bat** using *Windows Explorer*:  
+    *\OF_Windows_Installer\example\bin\SCRIPT\SCRIPT_DEPLOY.bat*
+    * Run the generated *\OF_Windows_Installer\example\bin\SCRIPT\guiExample_Setup.exe* and install the app into your system.  
+    * That's it!
 
 ## Dependencies
 * Required to run the script: [NSIS](https://nsis.sourceforge.io/Main_Page)  
